@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tekstil Atık Geri Dönüşümü Eğitim Portalı</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2E8B57;
+            --secondary-color: #F5F5DC;
+            --accent-color: #FF6B6B;
+            --text-color: #333;
+            --light-text: #fff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+        
+        .nav-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-color);
+            padding: 0 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .recycling-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .recycling-icon {
+            position: absolute;
+            font-size: 3rem;
+            color: rgba(46, 139, 87, 0.3);
+            animation: spin 15s linear infinite;
+        }
+        
+        .recycling-icon:nth-child(1) {
+            top: 15%;
+            left: 10%;
+            animation-duration: 18s;
+            color: rgba(46, 139, 87, 0.25);
+        }
+        
+        .recycling-icon:nth-child(2) {
+            top: 25%;
+            right: 15%;
+            animation-duration: 22s;
+            animation-direction: reverse;
+            color: rgba(46, 139, 87, 0.2);
+        }
+        
+        .recycling-icon:nth-child(3) {
+            bottom: 20%;
+            left: 20%;
+            animation-duration: 20s;
+            color: rgba(46, 139, 87, 0.3);
+        }
+        
+        .recycling-icon:nth-child(4) {
+            bottom: 30%;
+            right: 10%;
+            animation-duration: 25s;
+            animation-direction: reverse;
+            color: rgba(46, 139, 87, 0.25);
+        }
+        
+        .recycling-icon:nth-child(5) {
+            top: 40%;
+            left: 5%;
+            animation-duration: 17s;
+            color: rgba(46, 139, 87, 0.2);
+        }
+        
+        .recycling-icon:nth-child(6) {
+            bottom: 15%;
+            right: 25%;
+            animation-duration: 23s;
+            animation-direction: reverse;
+            color: rgba(46, 139, 87, 0.3);
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            backdrop-filter: blur(5px);
+        }
+        
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--light-text);
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #e05555;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        section {
+            padding: 4rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--accent-color);
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+        
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+        }
+        
+        .card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .process-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .step {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            padding: 1.5rem;
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            line-height: 40px;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+        
+        .interactive-section {
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .quiz-container, .calculator-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .question {
+            margin-bottom: 1.5rem;
+        }
+        
+        .options label {
+            display: block;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        
+        .options label:hover {
+            background: rgba(46, 139, 87, 0.1);
+        }
+        
+        .result {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 5px;
+            display: none;
+        }
+        
+        .calculator-form {
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .calculator-form input, .calculator-form select {
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .calculator-result {
+            margin-top: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            background: white;
+            padding: 1rem;
+            border-radius: 5px;
+        }
+        
+        /* Yeni Eklenen Stiller */
+        .title-with-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .title-image {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--primary-color);
+        }
+        
+        .project-catalog {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-steps {
+            margin-top: 1rem;
+            padding-left: 1.5rem;
+        }
+        
+        .project-steps li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .materials {
+            background: var(--secondary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+        
+        /* Tişört İsrafı Sayacı */
+        .waste-counter {
+            background: linear-gradient(135deg, #2E8B57 0%, #1a5c3a 100%);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .counter-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: white;
+        }
+        
+        .counter-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .counter-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+            min-width: 200px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .counter-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 0.5rem 0;
+            color: #FFD700;
+        }
+        
+        .counter-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .counter-note {
+            margin-top: 2rem;
+            font-style: italic;
+            opacity: 0.8;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* İletişim Bilgileri */
+        .contact-info {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: var(--secondary-color);
+            border-radius: 10px;
+        }
+        
+        .contact-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .email-link {
+            color: var(--primary-color);
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        
+        .email-link:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+        
+        /* Hakkımızda Bölümü */
+        .about-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .about-section {
+            margin-bottom: 2.5rem;
+        }
+        
+        .about-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 1rem;
+        }
+        
+        .team-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .team-member {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--secondary-color);
+            border-radius: 8px;
+        }
+        
+        .member-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1rem;
+            border: 3px solid var(--primary-color);
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .stat-item {
+            flex: 1;
+            min-width: 150px;
+            padding: 1rem;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+        
+        footer {
+            background-color: #1a1a1a;
+            color: var(--light-text);
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .social-links {
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: var(--light-text);
+            margin: 0 0.5rem;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+            display: inline-block;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .process-steps {
+                flex-direction: column;
+            }
+            
+            .recycling-icon {
+                font-size: 2.5rem;
+            }
+            
+            .recycling-icon:nth-child(1) {
+                top: 10%;
+                left: 5%;
+            }
+            
+            .recycling-icon:nth-child(2) {
+                top: 15%;
+                right: 5%;
+            }
+            
+            .recycling-icon:nth-child(3) {
+                bottom: 15%;
+                left: 10%;
+            }
+            
+            .recycling-icon:nth-child(4) {
+                bottom: 20%;
+                right: 5%;
+            }
+            
+            .recycling-icon:nth-child(5),
+            .recycling-icon:nth-child(6) {
+                display: none;
+            }
+            
+            .title-with-image {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .counter-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .counter-item {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .about-content {
+                padding: 1.5rem;
+            }
+            
+            .stats {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Tekstil Geri Dönüşümü</div>
+            <ul class="nav-links">
+                <li><a href="#about">Hakkında</a></li>
+                <li><a href="#process">Süreç</a></li>
+                <li><a href="#projects">Projeler</a></li>
+                <li><a href="#interactive">Etkileşimli</a></li>
+                <li><a href="#resources">Kaynaklar</a></li>
+                <li><a href="#about-us">Hakkımızda</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="recycling-icons">
+            <div class="recycling-icon"><i class="fas fa-recycle"></i></div>
+            <div class="recycling-icon"><i class="fas fa-recycle"></i></div>
+            <div class="recycling-icon"><i class="fas fa-recycle"></i></div>
+            <div class="recycling-icon"><i class="fas fa-recycle"></i></div>
+            <div class="recycling-icon"><i class="fas fa-recycle"></i></div>
+            <div class="recycling-icon"><i class="fas fa-recycle"></i></div>
+        </div>
+        <div class="hero-content">
+            <h1>Tekstil Atıklarınızı Geri Dönüştürün, Geleceği Kurtarın</h1>
+            <p>Tekstil atıklarının çevreye olan etkisini azaltmak için eğitim ve çözümler. Ekranda dönen geri dönüşüm simgeleri, sürdürülebilir bir döngüyü temsil ediyor.</p>
+            <a href="#about" class="btn">Daha Fazla Bilgi Edinin</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="title-with-image">
+            <img src="https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Tekstil Atıkları" class="title-image">
+            <h2 class="section-title">Tekstil Atıkları ve Geri Dönüşümün Önemi</h2>
+        </div>
+        <div class="info-cards">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1585154613442-6dddcecfca18?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Tekstil atıkları">
+                <div class="card-content">
+                    <h3>Tekstil Atıkları Nedir?</h3>
+                    <p>Tekstil atıkları, giysi, ev tekstili ve diğer kumaş ürünlerinin üretim, kullanım ve atık aşamalarında ortaya çıkan malzemelerdir. Her yıl milyonlarca ton tekstil atığı çöplüklere gönderiliyor.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1563453392212-326f5e854473?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Çevresel etki">
+                <div class="card-content">
+                    <h3>Çevresel Etkileri</h3>
+                    <p>Tekstil atıkları toprağı ve su kaynaklarını kirletir, sera gazı emisyonlarına katkıda bulunur ve doğal kaynakların aşırı tüketilmesine neden olur. Geri dönüşüm bu etkileri azaltmanın anahtarıdır.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Geri dönüşüm önemi">
+                <div class="card-content">
+                    <h3>Neden Geri Dönüşüm Önemli?</h3>
+                    <p>Tekstil geri dönüşümü doğal kaynakları korur, enerji tasarrufu sağlar, atık miktarını azaltır ve yeni ürünler için hammadde oluşturur. Sürdürülebilir bir moda endüstrisi için kritik öneme sahiptir.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact-info">
+            <h3>İletişim</h3>
+            <p>Tekstil geri dönüşümü hakkında daha fazla bilgi almak veya projelerimize katkıda bulunmak için bize ulaşın:</p>
+            <p><a href="mailto:yavuzkeremmurat@gmail.com" class="email-link">yavuzkeremmurat@gmail.com</a></p>
+        </div>
+    </section>
+
+    <section id="process">
+        <div class="title-with-image">
+            <img src="https://images.unsplash.com/photo-1585154776250-4ee3d6865b78?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Geri Dönüşüm Süreci" class="title-image">
+            <h2 class="section-title">Tekstil Geri Dönüşüm Süreci</h2>
+        </div>
+        <div class="process-steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Toplama</h3>
+                <p>Kullanılmış tekstil ürünleri geri dönüşüm kutularından, bağış merkezlerinden veya toplama programlarından toplanır.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Sınıflandırma</h3>
+                <p>Toplanan ürünler kullanılabilir durumda olanlar ve geri dönüşüm için ayrılacaklar şeklinde sınıflandırılır.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>İşleme</h3>
+                <p>Tekstil ürünleri liflerine ayrılır, temizlenir ve yeni ürünlerde kullanılmak üzere işlenir.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Yeniden Kullanım</h3>
+                <p>İşlenen malzemeler yeni tekstil ürünlerinde, yalıtım malzemelerinde veya diğer endüstrilerde kullanılır.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="title-with-image">
+            <img src="https://images.unsplash.com/photo-1489987707025-6c8361478992?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Evde Dönüşüm Projeleri" class="title-image">
+            <h2 class="section-title">Evde Tekstil Dönüşüm Projeleri</h2>
+        </div>
+        <p style="text-align: center; margin-bottom: 2rem;">Kullanmadığınız tekstil ürünlerini günlük hayatı kolaylaştıran eşyalara dönüştürün!</p>
+        
+        <div class="project-catalog">
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Bez Çanta" class="project-image">
+                <div class="project-content">
+                    <h3>Tişörtten Bez Çanta</h3>
+                    <div class="materials">Gerekli Malzemeler: Eski tişört, makas, iğne-iplik</div>
+                    <ol class="project-steps">
+                        <li>Tişörtün kollarını ve yaka kısmını kesin</li>
+                        <li>Alt kısmından 2-3 cm aralıklarla kesikler yapın</li>
+                        <li>Kesikleri karşılıklı düğümleyerek alt kısmı kapatın</li>
+                        <li>İsteğe bağlı olarak süsleyin</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1587334892363-8d0d26d69c0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Temizlik Bezi" class="project-image">
+                <div class="project-content">
+                    <h3>Pamuklu Kumaştan Temizlik Bezi</h3>
+                    <div class="materials">Gerekli Malzemeler: Eski pamuklu kumaş, makas</div>
+                    <ol class="project-steps">
+                        <li>Kumaşı 30x30 cm boyutlarında kesin</li>
+                        <li>Kenarlarını ütüleyerek düzgün hale getirin</li>
+                        <li>Katlayarak saklama kolaylığı sağlayın</li>
+                        <li>Farklı renklerde yaparak kullanım alanlarına göre ayırın</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Yastık Kılıfı" class="project-image">
+                <div class="project-content">
+                    <h3>Penye Kumaştan Yastık Kılıfı</h3>
+                    <div class="materials">Gerekli Malzemeler: Eski penye kumaş, makas, dikiş makinesi</div>
+                    <ol class="project-steps">
+                        <li>Kumaşı yastık boyutundan 2-3 cm büyük kesin</li>
+                        <li>Kenar dikişlerini yapın, bir kenarı açık bırakın</li>
+                        <li>Açık kenara fermuar veya düğme ekleyin</li>
+                        <li>İçine yastığı yerleştirip kullanın</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1586105449897-20b5efeb3233?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Oyuncak" class="project-image">
+                <div class="project-content">
+                    <h3>Kumaş Artıklarından Oyuncak</h3>
+                    <div class="materials">Gerekli Malzemeler: Kumaş artıkları, iğne-iplik, elyaf</div>
+                    <ol class="project-steps">
+                        <li>İstediğiniz oyuncak şeklinde iki parça kesin</li>
+                        <li>Parçaları ters çevirip kenarlarından dikin</li>
+                        <li>Küçük bir açıklık bırakıp içini elyaf ile doldurun</li>
+                        <li>Açıklığı dikip detayları ekleyin</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Minder" class="project-image">
+                <div class="project-content">
+                    <h3>Kot Pantolondan Minder</h3>
+                    <div class="materials">Gerekli Malzemeler: Eski kot pantolon, makas, elyaf</div>
+                    <ol class="project-steps">
+                        <li>Pantolonun bacaklarını kesip düz bir yüzey oluşturun</li>
+                        <li>İki parçayı birleştirerek kare şekli verin</li>
+                        <li>Kenarlarını dikip içini elyaf ile doldurun</li>
+                        <li>Dikişi tamamlayarak kullanmaya başlayın</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Kalemlik" class="project-image">
+                <div class="project-content">
+                    <h3>Kumaştan Kalemlik</h3>
+                    <div class="materials">Gerekli Malzemeler: Kumaş parçası, makas, dikiş malzemeleri</div>
+                    <ol class="project-steps">
+                        <li>Dikdörtgen şeklinde kumaş kesin</li>
+                        <li>Kumaşı silindir şeklinde dikin</li>
+                        <li>Alt kısmına daire şeklinde parça dikin</li>
+                        <li>Üst kısmına kumaştan kulplar ekleyin</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="interactive">
+        <h2 class="section-title">Etkileşimli Öğrenme</h2>
+        <div class="interactive-section">
+            <div class="quiz-container">
+                <h3>Tekstil Geri Dönüşüm Bilgi Testi</h3>
+                <div class="question">
+                    <p>1. Aşağıdakilerden hangisi tekstil geri dönüşümünün faydalarından değildir?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q1" value="a"> Doğal kaynakları koruma</label>
+                        <label><input type="radio" name="q1" value="b"> Enerji tasarrufu sağlama</label>
+                        <label><input type="radio" name="q1" value="c"> Atık miktarını artırma</label>
+                        <label><input type="radio" name="q1" value="d"> Sera gazı emisyonlarını azaltma</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>2. Tekstil geri dönüşüm sürecinin ilk adımı nedir?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q2" value="a"> İşleme</label>
+                        <label><input type="radio" name="q2" value="b"> Toplama</label>
+                        <label><input type="radio" name="q2" value="c"> Sınıflandırma</label>
+                        <label><input type="radio" name="q2" value="d"> Yeniden kullanım</label>
+                    </div>
+                </div>
+                <button class="btn" onclick="checkQuiz()">Cevapları Kontrol Et</button>
+                <div class="result" id="quizResult"></div>
+            </div>
+        </div>
+        
+        <div class="interactive-section" style="margin-top: 3rem;">
+            <div class="calculator-container">
+                <h3>Tekstil Atık Hesaplayıcı</h3>
+                <p>Haftalık tekstil atık miktarınızı hesaplayın ve çevresel etkisini görün.</p>
+                <div class="calculator-form">
+                    <label>Haftada kaç adet giysi atıyorsunuz?</label>
+                    <input type="number" id="clothesCount" min="0" value="0">
+                    
+                    <label>Atılan giysilerin ortalama ağırlığı (kg):</label>
+                    <input type="number" id="avgWeight" min="0" step="0.1" value="0.2">
+                    
+                    <button class="btn" onclick="calculateWaste()">Hesapla</button>
+                </div>
+                <div class="calculator-result" id="wasteResult"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="resources">
+        <h2 class="section-title">Ek Kaynaklar</h2>
+        <div class="info-cards">
+            <div class="card">
+                <div class="card-content">
+                    <h3>Yerel Geri Dönüşüm Merkezleri</h3>
+                    <p>Bulunduğunuz bölgedeki tekstil geri dönüşüm noktalarını harita üzerinde görüntüleyin ve en yakın noktayı bulun.</p>
+                    <a href="#" class="btn" style="margin-top: 1rem;">Haritayı Görüntüle</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Eğitim Materyalleri</h3>
+                    <p>Tekstil geri dönüşümü hakkında detaylı bilgiler, broşürler ve eğitim videolarına erişin.</p>
+                    <a href="#" class="btn" style="margin-top: 1rem;">Materyalleri İndir</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Gönüllü Programları</h3>
+                    <p>Yerel geri dönüşüm programlarına katılın veya kendi topluluğunuzda bir geri dönüşüm girişimi başlatın.</p>
+                    <a href="#" class="btn" style="margin-top: 1rem;">Katılın</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hakkımızda Bölümü -->
+    <section id="about-us">
+        <h2 class="section-title">Hakkımızda</h2>
+        <div class="about-content">
+            <div class="about-section">
+                <h3>Biz Kimiz?</h3>
+                <p>Tekstil Atık Geri Dönüşümü Eğitim Portalı, sürdürülebilir bir gelecek için tekstil atıklarının geri dönüşümü konusunda farkındalık yaratmayı ve eğitim vermeyi amaçlayan bir girişimdir. 2023 yılında kurulan platformumuz, bireylerin ve toplulukların tekstil atıklarını azaltma ve geri dönüştürme konusunda bilinçlenmesine katkıda bulunmayı hedeflemektedir.</p>
+            </div>
+            
+            <div class="about-section">
+                <h3>Misyonumuz</h3>
+                <p>Misyonumuz, tekstil atıklarının çevreye olan olumsuz etkilerini en aza indirmek için kapsamlı eğitim materyalleri, pratik projeler ve etkileşimli araçlar sunmaktır. Amacımız, bireyleri tekstil geri dönüşümü konusunda güçlendirmek ve sürdürülebilir bir moda anlayışının yaygınlaşmasına katkı sağlamaktır.</p>
+            </div>
+            
+            <div class="about-section">
+                <h3>Vizyonumuz</h3>
+                <p>Vizyonumuz, tekstil atıklarının %100 geri dönüştürüldüğü ve hiçbir tekstil ürününün çöpe gitmediği bir dünya yaratmaktır. Bu hedefe ulaşmak için eğitim, yenilikçi çözümler ve topluluk katılımını birleştiriyoruz.</p>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number">10.000+</span>
+                    <span class="stat-label">Ziyaretçi</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Eğitim Materyali</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">6</span>
+                    <span class="stat-label">Pratik Proje</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">Etkileşimli Araç</span>
+                </div>
+            </div>
+            
+            <div class="about-section">
+                <h3>Ekibimiz</h3>
+                <p>Portalımız, çevre bilinci yüksek, alanında uzman bir ekip tarafından yönetilmektedir. Ekibimiz, sürdürülebilirlik, tekstil mühendisliği, eğitim teknolojileri ve web geliştirme alanlarında deneyime sahiptir.</p>
+                
+                <div class="team-members">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Yavuz Kerem Murat" class="member-photo">
+                        <h4>Yavuz Kerem Murat</h4>
+                        <p>Kurucu & Proje Yöneticisi</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Ayşe Yılmaz" class="member-photo">
+                        <h4>Ayşe Yılmaz</h4>
+                        <p>Tekstil Mühendisi</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Mehmet Demir" class="member-photo">
+                        <h4>Mehmet Demir</h4>
+                        <p>Çevre Mühendisi</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-section">
+                <h3>Portalın Sunduğu Hizmetler</h3>
+                <p>Portalımız, tekstil geri dönüşümü konusunda kapsamlı bir eğitim platformu sunmaktadır:</p>
+                <ul>
+                    <li><strong>Eğitim İçerikleri:</strong> Tekstil atıkları, geri dönüşüm süreçleri ve çevresel etkiler hakkında detaylı bilgiler</li>
+                    <li><strong>Pratik Projeler:</strong> Evde uygulanabilecek 6 farklı dönüşüm projesi</li>
+                    <li><strong>Etkileşimli Araçlar:</strong> Bilgi testi, atık hesaplayıcı ve kaynak tüketim sayacı</li>
+                    <li><strong>Kaynak Merkezi:</strong> Yerel geri dönüşüm noktaları, eğitim materyalleri ve gönüllü programları</li>
+                    <li><strong>İletişim ve Destek:</strong> Bireysel danışmanlık ve topluluk destek programları</li>
+                </ul>
+            </div>
+            
+            <div class="about-section">
+                <h3>İletişim</h3>
+                <p>Tekstil geri dönüşümü hakkında daha fazla bilgi almak, projelerimize katkıda bulunmak veya işbirliği önerileriniz için bizimle iletişime geçebilirsiniz:</p>
+                <p><strong>E-posta:</strong> <a href="mailto:yavuzkeremmurat@gmail.com" class="email-link">yavuzkeremmurat@gmail.com</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tişört İsrafı Sayacı -->
+    <div class="waste-counter">
+        <h2 class="counter-title">Tek Bir Tişört Üretiminde Harcanan Kaynaklar</h2>
+        <div class="counter-container">
+            <div class="counter-item">
+                <div class="counter-value" id="waterCounter">0</div>
+                <div class="counter-label">Litre Su</div>
+            </div>
+            <div class="counter-item">
+                <div class="counter-value" id="co2Counter">0</div>
+                <div class="counter-label">kg CO₂ Salınımı</div>
+            </div>
+            <div class="counter-item">
+                <div class="counter-value" id="landCounter">0</div>
+                <div class="counter-label">m² Arazi Kullanımı</div>
+            </div>
+        </div>
+        <p class="counter-note">Bu sayılar, tek bir pamuklu tişört üretmek için gereken ortalama kaynak miktarını göstermektedir. Geri dönüşüm bu israfı önemli ölçüde azaltabilir.</p>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>Tekstil Atık Geri Dönüşümü Eğitim Portalı &copy; 2023</p>
+            <p>Daha sürdürülebilir bir gelecek için birlikte çalışalım</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Quiz kontrol fonksiyonu
+        function checkQuiz() {
+            const q1Answer = document.querySelector('input[name="q1"]:checked');
+            const q2Answer = document.querySelector('input[name="q2"]:checked');
+            const resultDiv = document.getElementById('quizResult');
+            
+            if (!q1Answer || !q2Answer) {
+                resultDiv.textContent = "Lütfen tüm soruları cevaplayın.";
+                resultDiv.style.display = 'block';
+                resultDiv.style.backgroundColor = '#FFEAA7';
+                return;
+            }
+            
+            let score = 0;
+            if (q1Answer.value === 'c') score++;
+            if (q2Answer.value === 'b') score++;
+            
+            resultDiv.textContent = `Skorunuz: ${score}/2 - ${score === 2 ? 'Tebrikler! Tüm cevaplar doğru.' : 'Biraz daha çalışmanız gerekebilir.'}`;
+            resultDiv.style.display = 'block';
+            resultDiv.style.backgroundColor = score === 2 ? '#A3E4D7' : '#F8C471';
+        }
+        
+        // Atık hesaplama fonksiyonu
+        function calculateWaste() {
+            const clothesCount = parseInt(document.getElementById('clothesCount').value) || 0;
+            const avgWeight = parseFloat(document.getElementById('avgWeight').value) || 0.2;
+            
+            const weeklyWaste = clothesCount * avgWeight;
+            const yearlyWaste = weeklyWaste * 52;
+            
+            // CO2 emisyonu hesaplama (yaklaşık değerler)
+            const co2PerKg = 15; // kg CO2/kg tekstil
+            const yearlyCO2 = yearlyWaste * co2PerKg;
+            
+            // Su tüketimi hesaplama (yaklaşık değerler)
+            const waterPerKg = 10000; // litre/kg pamuklu ürün
+            const yearlyWater = yearlyWaste * waterPerKg;
+            
+            const resultDiv = document.getElementById('wasteResult');
+            resultDiv.innerHTML = `
+                <p>Yıllık tekstil atık miktarınız: <strong>${yearlyWaste.toFixed(1)} kg</strong></p>
+                <p>Bu atığın yıllık çevresel etkisi:</p>
+                <ul>
+                    <li>${yearlyCO2.toFixed(0)} kg CO2 emisyonu (${(yearlyCO2/1000).toFixed(1)} ton)</li>
+                    <li>${yearlyWater.toFixed(0)} litre su tüketimi</li>
+                </ul>
+                <p>Geri dönüşümle bu etkiyi azaltabilirsiniz!</p>
+            `;
+        }
+        
+        // Tişört israfı sayacı
+        function animateCounter(element, finalValue, duration) {
+            let start = 0;
+            const increment = finalValue / (duration / 50); // 50ms aralıklarla artış
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= finalValue) {
+                    element.textContent = finalValue.toLocaleString();
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(start).toLocaleString();
+                }
+            }, 50);
+        }
+        
+        // Sayfa yüklendiğinde sayaçları başlat
+        window.addEventListener('load', function() {
+            // Gerçekçi değerler (kaynaklara dayalı)
+            const waterPerShirt = 2700; // litre
+            const co2PerShirt = 5; // kg
+            const landPerShirt = 15; // m²
+            
+            // Sayaçları başlat
+            setTimeout(() => {
+                animateCounter(document.getElementById('waterCounter'), waterPerShirt, 3000);
+            }, 500);
+            
+            setTimeout(() => {
+                animateCounter(document.getElementById('co2Counter'), co2PerShirt, 2000);
+            }, 1000);
+            
+            setTimeout(() => {
+                animateCounter(document.getElementById('landCounter'), landPerShirt, 2500);
+            }, 1500);
+        });
+        
+        // Yumuşak kaydırma efekti
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geri Bildirim - Beğenmediğiniz Özellikler</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .description {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .feedback-form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #444;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #6a11cb;
+            box-shadow: 0 0 0 2px rgba(106, 17, 203, 0.1);
+        }
+        
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .rating {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .rating-item {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .rating-item:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .rating-item.selected {
+            background-color: #6a11cb;
+            color: white;
+            border-color: #6a11cb;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-weight: 600;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feedback-list {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .feedback-item {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 15px;
+        }
+        
+        .feedback-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        
+        .feedback-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .feedback-feature {
+            font-weight: 600;
+            color: #6a11cb;
+        }
+        
+        .feedback-rating {
+            color: #ff9800;
+            font-weight: 600;
+        }
+        
+        .feedback-text {
+            color: #555;
+            margin-bottom: 10px;
+        }
+        
+        .feedback-date {
+            font-size: 0.85rem;
+            color: #888;
+        }
+        
+        .empty-feedback {
+            text-align: center;
+            padding: 40px;
+            color: #888;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .feedback-form, .feedback-list {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Geri Bildirim</h1>
+            <p class="description">Beğenmediğiniz özellikler hakkında yorum yapın, gelişmemize yardımcı olun.</p>
+        </header>
+        
+        <section class="feedback-form">
+            <h2>Geri Bildirim Formu</h2>
+            <form id="feedbackForm">
+                <div class="form-group">
+                    <label for="feature">Hangi özellik hakkında geri bildirimde bulunuyorsunuz?</label>
+                    <input type="text" id="feature" placeholder="Özellik adını yazın..." required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Bu özelliği nasıl değerlendiriyorsunuz?</label>
+                    <div class="rating">
+                        <div class="rating-item" data-value="1">Çok Kötü</div>
+                        <div class="rating-item" data-value="2">Kötü</div>
+                        <div class="rating-item" data-value="3">Orta</div>
+                        <div class="rating-item" data-value="4">İyi</div>
+                        <div class="rating-item" data-value="5">Çok İyi</div>
+                    </div>
+                    <input type="hidden" id="rating" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="comment">Görüşleriniz</label>
+                    <textarea id="comment" placeholder="Bu özellikle ilgili beğenmediğiniz noktaları detaylı şekilde açıklayın..." required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="suggestion">İyileştirme öneriniz var mı? (İsteğe bağlı)</label>
+                    <textarea id="suggestion" placeholder="Bu özelliğin nasıl iyileştirilebileceğine dair önerileriniz..."></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Geri Bildirimi Gönder</button>
+            </form>
+        </section>
+        
+        <section class="feedback-list">
+            <h2>Diğer Kullanıcıların Geri Bildirimleri</h2>
+            <div id="feedbackContainer">
+                <!-- Geri bildirimler buraya eklenecek -->
+                <div class="empty-feedback">
+                    <p>Henüz geri bildirim bulunmuyor. İlk geri bildirimi siz yapın!</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Derecelendirme seçimi
+        document.querySelectorAll('.rating-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // Tüm seçeneklerden seçili class'ını kaldır
+                document.querySelectorAll('.rating-item').forEach(i => {
+                    i.classList.remove('selected');
+                });
+                
+                // Tıklanan öğeye seçili class'ını ekle
+                this.classList.add('selected');
+                
+                // Gizli input'a değeri ata
+                document.getElementById('rating').value = this.getAttribute('data-value');
+            });
+        });
+        
+        // Form gönderme işlemi
+        document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const feature = document.getElementById('feature').value;
+            const rating = document.getElementById('rating').value;
+            const comment = document.getElementById('comment').value;
+            const suggestion = document.getElementById('suggestion').value;
+            
+            if (!feature || !rating || !comment) {
+                alert('Lütfen zorunlu alanları doldurun.');
+                return;
+            }
+            
+            // Yeni geri bildirim oluştur
+            addFeedback(feature, rating, comment, suggestion);
+            
+            // Formu temizle
+            this.reset();
+            document.querySelectorAll('.rating-item').forEach(i => {
+                i.classList.remove('selected');
+            });
+            
+            alert('Geri bildiriminiz için teşekkür ederiz!');
+        });
+        
+        // Geri bildirim ekleme fonksiyonu
+        function addFeedback(feature, rating, comment, suggestion) {
+            const feedbackContainer = document.getElementById('feedbackContainer');
+            
+            // Boş geri bildirim mesajını kaldır
+            if (feedbackContainer.querySelector('.empty-feedback')) {
+                feedbackContainer.innerHTML = '';
+            }
+            
+            const ratingText = getRatingText(rating);
+            const currentDate = new Date().toLocaleDateString('tr-TR');
+            
+            const feedbackHTML = `
+                <div class="feedback-item">
+                    <div class="feedback-header">
+                        <span class="feedback-feature">${feature}</span>
+                        <span class="feedback-rating">${ratingText}</span>
+                    </div>
+                    <p class="feedback-text">${comment}</p>
+                    ${suggestion ? `<p class="feedback-text"><strong>Öneri:</strong> ${suggestion}</p>` : ''}
+                    <div class="feedback-date">${currentDate}</div>
+                </div>
+            `;
+            
+            // Yeni geri bildirimi en üste ekle
+            feedbackContainer.insertAdjacentHTML('afterbegin', feedbackHTML);
+        }
+        
+        // Derecelendirme değerini metne çevirme
+        function getRatingText(rating) {
+            const ratings = {
+                '1': 'Çok Kötü',
+                '2': 'Kötü',
+                '3': 'Orta',
+                '4': 'İyi',
+                '5': 'Çok İyi'
+            };
+            
+            return ratings[rating] || 'Değerlendirilmedi';
+        }
+        
+        // Sayfa yüklendiğinde örnek geri bildirimler ekle (demo amaçlı)
+        window.addEventListener('DOMContentLoaded', function() {
+            // Örnek geri bildirimler
+            addFeedback('Kullanıcı arayüzü', '2', 'Arayüz çok karmaşık ve kullanıcı dostu değil. Menüler arasında gezinmek zor.', 'Daha basit ve sezgisel bir arayüz tasarlanmalı.');
+            addFeedback('Yükleme hızı', '1', 'Sayfaların yüklenmesi çok yavaş, bu durum kullanıcı deneyimini olumsuz etkiliyor.', 'Sunucu optimizasyonu yapılmalı ve gereksiz scriptler kaldırılmalı.');
+        });
+    </script>
+</body>
+</html>
